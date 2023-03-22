@@ -1,0 +1,984 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "createdAt": {
+            "type": "string",
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "id": {
+            "type": "string",
+            "originalType": "String"
+          },
+          "updatedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "deletedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "firstName": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "String"
+          },
+          "lastName": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "String"
+          },
+          "isBanned": {
+            "type": [
+              "boolean",
+              "null"
+            ],
+            "originalType": "Boolean"
+          },
+          "email": {
+            "type": "string",
+            "originalType": "String"
+          },
+          "password": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "String"
+          },
+          "role": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "String"
+          },
+          "numberPhone": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "originalType": "Int"
+          },
+          "supports": {
+            "type": "array",
+            "originalType": "Support",
+            "items": {
+              "$ref": "#/definitions/Support"
+            }
+          },
+          "salarier": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/Salarier"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "originalType": "Salarier"
+          },
+          "RH": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/RH"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "originalType": "RH"
+          }
+        },
+        "required": [
+          "email"
+        ]
+      },
+      "Salarier": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "originalType": "String"
+          },
+          "team": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/Team"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "originalType": "Team"
+          },
+          "teamId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "String"
+          },
+          "user": {
+            "$ref": "#/definitions/User"
+          },
+          "userId": {
+            "type": "string",
+            "originalType": "String"
+          },
+          "responses": {
+            "type": "array",
+            "originalType": "Response",
+            "items": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        },
+        "required": [
+          "userId"
+        ]
+      },
+      "RH": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "originalType": "String"
+          },
+          "company": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/Company"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "originalType": "Company"
+          },
+          "companyId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "String"
+          },
+          "user": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/User"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "originalType": "User"
+          },
+          "userId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "String"
+          }
+        },
+        "required": []
+      },
+      "Group": {
+        "type": "object",
+        "properties": {
+          "createdAt": {
+            "type": "string",
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "id": {
+            "type": "string",
+            "originalType": "String"
+          },
+          "updatedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "deletedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "name": {
+            "type": "string",
+            "originalType": "String"
+          },
+          "companyId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "String"
+          },
+          "teams": {
+            "type": "array",
+            "originalType": "Team",
+            "items": {
+              "$ref": "#/definitions/Team"
+            }
+          },
+          "programme": {
+            "type": "array",
+            "originalType": "Programme",
+            "items": {
+              "$ref": "#/definitions/Programme"
+            }
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "Team": {
+        "type": "object",
+        "properties": {
+          "createdAt": {
+            "type": "string",
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "id": {
+            "type": "string",
+            "originalType": "String"
+          },
+          "updatedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "deletedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "name": {
+            "type": "string",
+            "originalType": "String"
+          },
+          "isDefault": {
+            "type": [
+              "boolean",
+              "null"
+            ],
+            "originalType": "Boolean"
+          },
+          "group": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/Group"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "originalType": "Group"
+          },
+          "groupId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "String"
+          },
+          "salariers": {
+            "type": "array",
+            "originalType": "Salarier",
+            "items": {
+              "$ref": "#/definitions/Salarier"
+            }
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "Skill": {
+        "type": "object",
+        "properties": {
+          "createdAt": {
+            "type": "string",
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "id": {
+            "type": "string",
+            "originalType": "String"
+          },
+          "updatedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "deletedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "name": {
+            "type": "string",
+            "originalType": "String"
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "String"
+          },
+          "image": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "String"
+          },
+          "active": {
+            "type": [
+              "boolean",
+              "null"
+            ],
+            "originalType": "Boolean"
+          },
+          "badgeActive": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "String"
+          },
+          "badgeDesactive": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "String"
+          },
+          "chapter": {
+            "type": "array",
+            "originalType": "Chapter",
+            "items": {
+              "$ref": "#/definitions/Chapter"
+            }
+          },
+          "programmes": {
+            "type": "array",
+            "originalType": "Programme",
+            "items": {
+              "$ref": "#/definitions/Programme"
+            }
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "Chapter": {
+        "type": "object",
+        "properties": {
+          "createdAt": {
+            "type": "string",
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "id": {
+            "type": "string",
+            "originalType": "String"
+          },
+          "updatedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "deletedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "name": {
+            "type": "string",
+            "originalType": "String"
+          },
+          "image": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "String"
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "String"
+          },
+          "type": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "String"
+          },
+          "order": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "originalType": "Int"
+          },
+          "skill": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/Skill"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "originalType": "Skill"
+          },
+          "skillId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "String"
+          },
+          "path": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "String"
+          },
+          "responses": {
+            "type": "array",
+            "originalType": "Response",
+            "items": {
+              "$ref": "#/definitions/Response"
+            }
+          },
+          "training": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/Training"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "originalType": "Training"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "Training": {
+        "type": "object",
+        "properties": {
+          "createdAt": {
+            "type": "string",
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "id": {
+            "type": "string",
+            "originalType": "String"
+          },
+          "updatedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "deletedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "title": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "String"
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "String"
+          },
+          "chapter": {
+            "$ref": "#/definitions/Chapter"
+          },
+          "chapterId": {
+            "type": "string",
+            "originalType": "String"
+          }
+        },
+        "required": [
+          "chapterId"
+        ]
+      },
+      "Programme": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "originalType": "String"
+          },
+          "createdAt": {
+            "type": "string",
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "deletedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "group": {
+            "$ref": "#/definitions/Group"
+          },
+          "skill": {
+            "$ref": "#/definitions/Skill"
+          },
+          "groupId": {
+            "type": "string",
+            "originalType": "String"
+          },
+          "skillId": {
+            "type": "string",
+            "originalType": "String"
+          },
+          "startDate": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "endDate": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "active": {
+            "type": [
+              "boolean",
+              "null"
+            ],
+            "originalType": "Boolean"
+          },
+          "coachName": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "String"
+          },
+          "dateCoach": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "order": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "originalType": "Int"
+          },
+          "info": {
+            "type": [
+              "number",
+              "string",
+              "boolean",
+              "object",
+              "array",
+              "null"
+            ],
+            "originalType": "Json"
+          }
+        },
+        "required": [
+          "groupId",
+          "skillId"
+        ]
+      },
+      "Support": {
+        "type": "object",
+        "properties": {
+          "createdAt": {
+            "type": "string",
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "id": {
+            "type": "string",
+            "originalType": "String"
+          },
+          "updatedAt": {
+            "type": "string",
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "deletedAt": {
+            "type": "string",
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "description": {
+            "type": "string",
+            "originalType": "String"
+          },
+          "user": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/User"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "originalType": "User"
+          },
+          "userId": {
+            "type": "string",
+            "originalType": "String"
+          }
+        },
+        "required": [
+          "updatedAt",
+          "deletedAt",
+          "description",
+          "userId"
+        ]
+      },
+      "Facture": {
+        "type": "object",
+        "properties": {
+          "createdAt": {
+            "type": "string",
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "id": {
+            "type": "string",
+            "originalType": "String"
+          },
+          "updatedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "deletedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "company": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/Company"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "originalType": "Company"
+          },
+          "companyId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "String"
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "String"
+          }
+        },
+        "required": []
+      },
+      "Company": {
+        "type": "object",
+        "properties": {
+          "createdAt": {
+            "type": "string",
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "id": {
+            "type": "string",
+            "originalType": "String"
+          },
+          "updatedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "deletedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "name": {
+            "type": "string",
+            "originalType": "String"
+          },
+          "email": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "String"
+          },
+          "active": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "String"
+          },
+          "RH": {
+            "type": "array",
+            "originalType": "RH",
+            "items": {
+              "$ref": "#/definitions/RH"
+            }
+          },
+          "facture": {
+            "type": "array",
+            "originalType": "Facture",
+            "items": {
+              "$ref": "#/definitions/Facture"
+            }
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "Response": {
+        "type": "object",
+        "properties": {
+          "createdAt": {
+            "type": "string",
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "id": {
+            "type": "string",
+            "originalType": "String"
+          },
+          "updatedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "deletedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "DateTime",
+            "format": "date-time"
+          },
+          "salarier": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/Salarier"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "originalType": "Salarier"
+          },
+          "salarierId": {
+            "type": "string",
+            "originalType": "String"
+          },
+          "chapter": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/Chapter"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "originalType": "Chapter"
+          },
+          "chapterId": {
+            "type": "string",
+            "originalType": "String"
+          },
+          "response": {
+            "type": [
+              "number",
+              "string",
+              "boolean",
+              "object",
+              "array",
+              "null"
+            ],
+            "originalType": "Json"
+          },
+          "withTraning": {
+            "type": [
+              "boolean",
+              "null"
+            ],
+            "originalType": "Boolean"
+          },
+          "progressive": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "originalType": "String"
+          }
+        },
+        "required": [
+          "salarierId",
+          "chapterId",
+          "response"
+        ]
+      }
+    },
+    "type": "object",
+    "properties": {
+      "user": {
+        "$ref": "#/definitions/User"
+      },
+      "salarier": {
+        "$ref": "#/definitions/Salarier"
+      },
+      "rH": {
+        "$ref": "#/definitions/RH"
+      },
+      "group": {
+        "$ref": "#/definitions/Group"
+      },
+      "team": {
+        "$ref": "#/definitions/Team"
+      },
+      "skill": {
+        "$ref": "#/definitions/Skill"
+      },
+      "chapter": {
+        "$ref": "#/definitions/Chapter"
+      },
+      "training": {
+        "$ref": "#/definitions/Training"
+      },
+      "programme": {
+        "$ref": "#/definitions/Programme"
+      },
+      "support": {
+        "$ref": "#/definitions/Support"
+      },
+      "facture": {
+        "$ref": "#/definitions/Facture"
+      },
+      "company": {
+        "$ref": "#/definitions/Company"
+      },
+      "response": {
+        "$ref": "#/definitions/Response"
+      }
+    }
+  }
