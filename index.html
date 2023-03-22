@@ -1,0 +1,229 @@
+<html>
+
+<head>
+    <title>TP-JS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+        .form {
+            margin-left: 25%;
+            margin-top: 3%;
+        }
+
+        .lb-radio {}
+
+        .in {
+            width: 30%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="form">
+        <h1 style="margin-left: 20%;">Commande Enligne</h1>
+        <button class="btn btn-rounded btn-danger" style="margin-left: 50%;display: none;" onclick="duplicateForm2()"
+            id="btn1">+</button>
+        <button class="btn btn-rounded btn-danger" style="margin-left: 50%;display: none;" onclick="duplicateForm3()"
+            id="btn2">+</button>
+        <form class="form" id="generale">
+            <div class="form-group">
+                <label for="formGroupExampleInput">FirstName</label>
+                <input type="text" class="form-control in" id="firstname" placeholder="Example input">
+                <span id="error" style="color:red"></span>
+            </div>
+            <label for="formGroupExampleInput2">LastName</label>
+            <input type="text" class="form-control in" id="lastname" placeholder="Another input"><br>
+            <span id="error1" style="color:red"></span>
+            <div>
+                <label for="formGroupExampleInput2" class="lb-radio">Type : </label>
+                <input class="form-check-input " type="radio" style="margin-left: 2%;" name="exampleRadios" id="radio2"
+                    value="option1" onclick="checking()">
+                <label class="form-check-label" for="exampleRadios1">
+                    Moto
+                </label>
+                <input class="form-check-input" type="radio" style="margin-left: 2%;" name="exampleRadios" id="radio1"
+                    value="option2" onclick="checking()">
+                <label class="form-check-label" for="exampleRadios1">
+                    Voiture
+                </label>
+            </div>
+            <div class="form-group" id="form2" style="display: none;">
+                <label>Cadre*</label>
+                <input type="text" class="form-control in" id="cadre" placeholder="Cadre">
+                <span id="error5" style="color:red"></span>
+
+                <label>Cyl*</label>
+                <input type="text" class="form-control in" id="formGroupExampleInput2" placeholder="Cyl">
+                <span id="error6" style="color:red"></span>
+
+                <label>Hauteur</label>
+                <input type="number" class="form-control in" id="formGroupExampleInput3" placeholder="Hauteur">
+
+                <label>Largeur</label>
+                <input type="number" class="form-control in" id="formGroupExampleInput4" placeholder="Largeur">
+
+                <label>Puissance*</label>
+                <input type="text" class="form-control in" id="formGroupExampleInput5" placeholder="Puissance">
+                <span id="error7" style="color:red"></span>
+
+            </div>
+
+            <div class="form-group" id="form3" style="display: none;">
+                <label for="formGroupExampleInput">Modele*</label>
+                <input type="text" class="form-control in" id="formGroupExampleInput" placeholder="Example input">
+                <span id="error2" style="color:red"></span>
+
+                <label for="formGroupExampleInput">Marque*</label>
+                <input type="text" class="form-control in" id="formGroupExampleInput" placeholder="Example input">
+                <span id="error3" style="color:red"></span>
+
+                <label for="formGroupExampleInput">Année</label>
+                <input type="text" class="form-control in" id="formGroupExampleInput" placeholder="Example input">
+
+                <label for="formGroupExampleInput">Energie</label>
+                <input type="text" class="form-control in" id="formGroupExampleInput" placeholder="Example input">
+
+                <label for="formGroupExampleInput">Ports*</label>
+                <input type="text" class="form-control in" id="formGroupExampleInput" placeholder="Example input">
+                <span id="error4" style="color:red"></span>
+
+                <label for="formGroupExampleInput">Prix *</label>
+                <input type="number" class="form-control in" id="prix" placeholder="Example input">
+                <span id="error4" style="color:red"></span>
+
+            </div>
+
+        </form>
+        <input type="button" class="btn btn-danger" style="margin-left: 25%;" name="Commander" onclick="onSubmit()"
+            value="Commander">
+
+    </div>
+    <script>
+
+
+
+        function checking() {
+            var container3 = document.getElementById("form3");
+            var container2 = document.getElementById("form2");
+            if (document.getElementById('radio1').checked == true) {
+                document.getElementById('form2').style.display = 'block';
+                document.getElementById('form3').style.display = 'none';
+
+                document.getElementById('btn1').style.display = 'block';
+                document.getElementById('btn2').style.display = 'none';
+
+
+            } else if (document.getElementById('radio2').checked == true) {
+                document.getElementById('form3').style.display = 'block';
+                document.getElementById('form2').style.display = 'none';
+
+                document.getElementById('btn2').style.display = 'block';
+                document.getElementById('btn1').style.display = 'none';
+
+            }
+        }
+
+
+        function onSubmit() {
+
+            const firstname = document.getElementById("firstname").value;
+            const lastname = document.getElementById("lastname").value;
+            const cadre = document.getElementById("cadre").value;
+            const formGroupExampleInput2 = document.getElementById("formGroupExampleInput2").value;
+            const formGroupExampleInput3 = document.getElementById("formGroupExampleInput3").value;
+            const formGroupExampleInput4 = document.getElementById("formGroupExampleInput4").value;
+            const formGroupExampleInput5 = document.getElementById("formGroupExampleInput5").value;
+
+
+            const radio1 = document.getElementById("radio1");
+            const radio2 = document.getElementById("radio2");
+
+            // check if firstname is emty 
+            if (firstname == '') {
+                document.getElementById('firstname').style.border = "1px solid red";
+                document.getElementById('error').innerHTML = "required filed";
+            } else {
+                document.getElementById('firstname').style.border = "1px solid green";
+                document.getElementById('error').innerHTML = "";
+            }
+            // check if lastname is emty 
+            if (lastname == '') {
+                document.getElementById('lastname').style.border = "1px solid red";
+                document.getElementById('error1').innerHTML = "required filed";
+            } else {
+                document.getElementById('lastname').style.border = "1px solid green";
+                document.getElementById('error1').innerHTML = "";
+            }
+
+            // check if checkbox x
+            if (cadre == '') {
+                document.getElementById('cadre').style.border = "1px solid red";
+                document.getElementById('error5').innerHTML = "required filed";
+            } else {
+                document.getElementById('cadre').style.border = "1px solid green";
+                document.getElementById('error5').innerHTML = "";
+            }
+
+
+            // check if checkbox x
+            if (
+                formGroupExampleInput2 == ''
+                || formGroupExampleInput3 == ''
+                || formGroupExampleInput3 == ''
+                || formGroupExampleInput4 == ''
+            ) {
+                document.getElementById('formGroupExampleInput2').style.border = "1px solid red";
+                document.getElementById('error5').innerHTML = "required filed";
+
+                document.getElementById('formGroupExampleInput3').style.border = "1px solid red";
+                document.getElementById('error5').innerHTML = "required filed";
+
+                document.getElementById('formGroupExampleInput4').style.border = "1px solid red";
+                document.getElementById('error5').innerHTML = "required filed";
+
+                document.getElementById('formGroupExampleInput5').style.border = "1px solid red";
+                document.getElementById('error5').innerHTML = "required filed";
+            } else {
+                document.getElementById('formGroupExampleInput2').style.border = "1px solid green";
+                document.getElementById('error5').innerHTML = "";
+
+                document.getElementById('formGroupExampleInput3').style.border = "1px solid green";
+                document.getElementById('error5').innerHTML = "";
+
+                document.getElementById('formGroupExampleInput4').style.border = "1px solid green";
+                document.getElementById('error5').innerHTML = "";
+
+                document.getElementById('formGroupExampleInput5').style.border = "1px solid green";
+                document.getElementById('error5').innerHTML = "";
+            }
+            // prixTotale = 0;
+            // prixElementaire = document.getElementById('prix').value;
+            // prixTotale = prixTotale +  prixElementaire;
+            // alert(prixElementaire)
+            // document.getElementById('prix').innerHTML = prixTotale;
+
+
+        }
+
+
+        function duplicateForm3() {
+            const node = document.getElementById("form3");
+            const clone = node.cloneNode(true);
+            document.getElementById('generale').appendChild(clone);
+        }
+        function duplicateForm2() {
+            const node = document.getElementById("form2");
+            const clone = node.cloneNode(true);
+            prixElementaire = document.getRootNode(clone).value;
+            document.getElementById('generale').appendChild(clone);
+        }
+
+
+
+    </script>
+</body>
+
+</html>

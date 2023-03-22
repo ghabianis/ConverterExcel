@@ -1,0 +1,18 @@
+{
+  "name": "web_dev_tp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "converter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "csv-writer": "^1.6.0",
+    "exceljs": "^4.3.0",
+    "fs": "^0.0.1-security",
+    "pg": "^8.10.0",
+    "xlsx": "^0.18.5"
+  }
+}

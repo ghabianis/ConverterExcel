@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea id="your-erd-diagram-container"></textarea>
+    <button>submit</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/5.13.6/jsplumb.bundle.js" integrity="sha512-i2NtWYs2gs+Olnv5DZ5ax2rXhIlhDYxjdnzfufYzE8MBRUEte/mtGYU8P31Aya3+aVJuKlVaYOjywE9iIOuYBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        import jsPlumb from 'https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/5.13.6/jsplumb.bundle.js';
+
+    function convertErdToExcel(erd) {
+    // Parse the ERD diagram using jsPlumb
+    jsPlumb.importDefaults({
+      Connector: 'StateMachine',
+      Anchors: ['TopCenter', 'BottomCenter'],
+      Endpoint: ['Dot', { radius: 2 }],
+      PaintStyle: { strokeStyle: '#666' },
+      HoverPaintStyle: { strokeStyle: '#FF6600' },
+      EndpointStyle: { fillStyle: '#666' },
+      ConnectorStyle: { strokeStyle: '#666' },
+    });
+  
+    const instance = jsPlumb.getInstance();
+    instance.setContainer(erdDiagram);
+  
+    // Extract relevant information from the diagram
+    const data = [];
+    const entities = instance.getSelector('.entity');
+    entities.forEach((entity) => {
+      const tableName = entity.getAttribute('data-table-name');
+      const columns = instance.getSelector(`.column[data-parent-table="${tableName}"]`);
+      const row = [tableName];
+      columns.forEach((column) => {
+        const columnName = column.getAttribute('data-column-name');
+        row.push(columnName);
+      });
+      data.push(row);
+    });
+  
+    // Create a new Excel workbook and sheet
+    const workbook = xlsx.utils.book_new();
+    const worksheet = xlsx.utils.aoa_to_sheet(data);
+  
+    // Add the sheet to the workbook
+    xlsx.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+  
+    // Save the workbook to a file
+    xlsx.writeFile(workbook, 'path/to/your/excel/file.xlsx');
+  }
+  
+  const erd =  document.getElementById('your-erd-diagram-container').value;
+  convertErdToExcel(erd);
+  // Call the function with your ERD diagram container element
+
+    </script>
+</body>
+</html>
