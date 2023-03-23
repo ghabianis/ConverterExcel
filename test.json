@@ -1,0 +1,16 @@
+{
+    "WorkspaceResponse" : [
+         {
+        "createdAt": "DateTime [default: `now()`, not null]",
+        "updatedAt": "DateTime",
+        "deletedAt": "DateTime",
+        "id":"String [pk]",
+        "data":"Json [not null]",
+        "client":"Client [not null]",
+        "clientId":"String [not null]",
+        "WorkspaceVersionId": "String",
+        "type" :"enumworkspaceresponsetype",
+        "workspaceStepId": "String"
+      }
+    ]
+}

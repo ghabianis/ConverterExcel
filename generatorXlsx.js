@@ -19,8 +19,8 @@ fs.readFile("schema.json", "utf8", (error, data) => {
             sheetNames.push(key);
         });
         //changing any user table to test table
-        for(j = 0; j< sheetNames.length;j++){
-            if(sheetNames[j] == "User"){
+        for (j = 0; j < sheetNames.length; j++) {
+            if (sheetNames[j] == "User") {
                 sheetNames[j] = "Test";
             }
         }
@@ -32,7 +32,7 @@ fs.readFile("schema.json", "utf8", (error, data) => {
                         field: key2,
                         type: key2.charAt(0).toUpperCase() + key2.slice(1),
                     });
-                } else if (fields[key2].originalType == 'String' || key2 == 'User') {
+                } else if (fields[key2].originalType == 'String') {
                     data_sw.push({
                         field: key2,
                         type: 'text',
@@ -49,11 +49,10 @@ fs.readFile("schema.json", "utf8", (error, data) => {
             XLSX.utils.book_append_sheet(wb, ws, sheetNames[i], { origin: "A2" });
         }
         ws['!ref'] = "A1:B1" // change the sheet range to A2:C3
+        console.log(ws['!ref']);
         //generating excel file to ./wb.xlsx destination
         XLSX.writeFile(wb, "prisma-schema.xlsx");
         var OUTFILE = "prisma-schema.xlsx";
         console.log("Results written to " + OUTFILE);
-
     }
-
 });

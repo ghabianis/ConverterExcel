@@ -1,0 +1,15 @@
+{
+    "definitions": {
+        "tabName": {
+            "type": "object",
+            "properties": {
+                "firstName": {
+                    "type": [
+                        "can be null"
+                    ],
+                    "originalType": "any_type"
+                }
+            }
+        }
+    }
+}
