@@ -18,6 +18,12 @@ fs.readFile("schema.json", "utf8", (error, data) => {
             sampleData.push(dataJson.definitions[key].properties);
             sheetNames.push(key);
         });
+        //changing any user table to test table
+        for(j = 0; j< sheetNames.length;j++){
+            if(sheetNames[j] == "User"){
+                sheetNames[j] = "Test";
+            }
+        }
         for (i = 0; i < sampleData.length; i++) {
             fields = sampleData[i];
             Object.keys(fields).forEach(function (key2, index2) {

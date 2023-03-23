@@ -4,31 +4,6 @@
       "User": {
         "type": "object",
         "properties": {
-          "createdAt": {
-            "type": "string",
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
-          "id": {
-            "type": "string",
-            "originalType": "String"
-          },
-          "updatedAt": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
-          "deletedAt": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
           "firstName": {
             "type": [
               "string",
@@ -74,35 +49,6 @@
               "null"
             ],
             "originalType": "Int"
-          },
-          "supports": {
-            "type": "array",
-            "originalType": "Support",
-            "items": {
-              "$ref": "#/definitions/Support"
-            }
-          },
-          "salarier": {
-            "anyOf": [
-              {
-                "$ref": "#/definitions/Salarier"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "originalType": "Salarier"
-          },
-          "RH": {
-            "anyOf": [
-              {
-                "$ref": "#/definitions/RH"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "originalType": "RH"
           }
         },
         "required": [
@@ -112,10 +58,6 @@
       "Salarier": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "string",
-            "originalType": "String"
-          },
           "team": {
             "anyOf": [
               {
@@ -156,10 +98,6 @@
       "RH": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "string",
-            "originalType": "String"
-          },
           "company": {
             "anyOf": [
               {
@@ -202,31 +140,6 @@
       "Group": {
         "type": "object",
         "properties": {
-          "createdAt": {
-            "type": "string",
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
-          "id": {
-            "type": "string",
-            "originalType": "String"
-          },
-          "updatedAt": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
-          "deletedAt": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
           "name": {
             "type": "string",
             "originalType": "String"
@@ -260,31 +173,6 @@
       "Team": {
         "type": "object",
         "properties": {
-          "createdAt": {
-            "type": "string",
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
-          "id": {
-            "type": "string",
-            "originalType": "String"
-          },
-          "updatedAt": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
-          "deletedAt": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
           "name": {
             "type": "string",
             "originalType": "String"
@@ -296,30 +184,12 @@
             ],
             "originalType": "Boolean"
           },
-          "group": {
-            "anyOf": [
-              {
-                "$ref": "#/definitions/Group"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "originalType": "Group"
-          },
           "groupId": {
             "type": [
               "string",
               "null"
             ],
             "originalType": "String"
-          },
-          "salariers": {
-            "type": "array",
-            "originalType": "Salarier",
-            "items": {
-              "$ref": "#/definitions/Salarier"
-            }
           }
         },
         "required": [
@@ -329,31 +199,6 @@
       "Skill": {
         "type": "object",
         "properties": {
-          "createdAt": {
-            "type": "string",
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
-          "id": {
-            "type": "string",
-            "originalType": "String"
-          },
-          "updatedAt": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
-          "deletedAt": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
           "name": {
             "type": "string",
             "originalType": "String"
@@ -392,20 +237,6 @@
               "null"
             ],
             "originalType": "String"
-          },
-          "chapter": {
-            "type": "array",
-            "originalType": "Chapter",
-            "items": {
-              "$ref": "#/definitions/Chapter"
-            }
-          },
-          "programmes": {
-            "type": "array",
-            "originalType": "Programme",
-            "items": {
-              "$ref": "#/definitions/Programme"
-            }
           }
         },
         "required": [
@@ -415,31 +246,6 @@
       "Chapter": {
         "type": "object",
         "properties": {
-          "createdAt": {
-            "type": "string",
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
-          "id": {
-            "type": "string",
-            "originalType": "String"
-          },
-          "updatedAt": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
-          "deletedAt": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
           "name": {
             "type": "string",
             "originalType": "String"
@@ -523,31 +329,6 @@
       "Training": {
         "type": "object",
         "properties": {
-          "createdAt": {
-            "type": "string",
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
-          "id": {
-            "type": "string",
-            "originalType": "String"
-          },
-          "updatedAt": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
-          "deletedAt": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
           "title": {
             "type": [
               "string",
@@ -577,31 +358,6 @@
       "Programme": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "string",
-            "originalType": "String"
-          },
-          "createdAt": {
-            "type": "string",
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
-          "updatedAt": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
-          "deletedAt": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
           "group": {
             "$ref": "#/definitions/Group"
           },
@@ -681,25 +437,6 @@
       "Support": {
         "type": "object",
         "properties": {
-          "createdAt": {
-            "type": "string",
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
-          "id": {
-            "type": "string",
-            "originalType": "String"
-          },
-          "updatedAt": {
-            "type": "string",
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
-          "deletedAt": {
-            "type": "string",
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
           "description": {
             "type": "string",
             "originalType": "String"
@@ -730,31 +467,6 @@
       "Facture": {
         "type": "object",
         "properties": {
-          "createdAt": {
-            "type": "string",
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
-          "id": {
-            "type": "string",
-            "originalType": "String"
-          },
-          "updatedAt": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
-          "deletedAt": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
           "company": {
             "anyOf": [
               {
@@ -786,31 +498,6 @@
       "Company": {
         "type": "object",
         "properties": {
-          "createdAt": {
-            "type": "string",
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
-          "id": {
-            "type": "string",
-            "originalType": "String"
-          },
-          "updatedAt": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
-          "deletedAt": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
           "name": {
             "type": "string",
             "originalType": "String"
@@ -851,56 +538,9 @@
       "Response": {
         "type": "object",
         "properties": {
-          "createdAt": {
-            "type": "string",
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
-          "id": {
-            "type": "string",
-            "originalType": "String"
-          },
-          "updatedAt": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
-          "deletedAt": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "originalType": "DateTime",
-            "format": "date-time"
-          },
-          "salarier": {
-            "anyOf": [
-              {
-                "$ref": "#/definitions/Salarier"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "originalType": "Salarier"
-          },
           "salarierId": {
             "type": "string",
             "originalType": "String"
-          },
-          "chapter": {
-            "anyOf": [
-              {
-                "$ref": "#/definitions/Chapter"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "originalType": "Chapter"
           },
           "chapterId": {
             "type": "string",
