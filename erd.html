@@ -183,7 +183,6 @@
         // Convert the entity's attributes to an array of arrays
         const data = entity.attributes.map((attr) => [attr.name, attr.type]);
 
-        console.log(entity.name)
         // Create a new worksheet for the entity
         const worksheet = XLSX.utils.aoa_to_sheet(data);
 
@@ -194,17 +193,10 @@
           entity.name
         );
       }
-
       // Convert the workbook to a binary string
       const binaryString = XLSX.write(workbook, { type: "binary" });
 
-      // // Convert the binary string to a Blob object
-      // const blob = new Blob([s2ab(binaryString)], {
-      //   type: "application/octet-stream",
-      // });
-
       // Download the Excel file
-      // saveAs(s2ab(binaryString), "ERD.xlsx");
       XLSX.writeFile(workbook, 'testing.xlsx');
 
     }
@@ -220,7 +212,6 @@
     }
 
     function copy() {
-      console.log('test')
       document.getElementById("copyme").innerHTML = "copy!";
       setTimeout("document.getElementById('copyme').style.visibility = 'hidden'", 500);
     }
